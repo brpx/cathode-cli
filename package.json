@@ -1,0 +1,17 @@
+{
+  "name": "Cathode",
+  "version": "0.8.0",
+  "description": "Cathode for the command line",
+  "repository": "https://github.com/brpx/cathode-cli",
+  "license": "MIT License",
+  "private": true,
+  "bin": {
+    "cathode": "./src/cathode.js"
+  },
+  "scripts": {},
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "superagent": "^3.3.1"
+  }
+}
