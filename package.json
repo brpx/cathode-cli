@@ -4,7 +4,7 @@
   "description": "Cathode for the command line",
   "repository": "https://github.com/brpx/cathode-cli",
   "license": "MIT License",
-  "private": true,
+  "private": false,
   "bin": {
     "cathode": "./src/cathode.js"
   },
