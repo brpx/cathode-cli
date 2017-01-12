@@ -44,7 +44,8 @@ program
                     }
                     break;
                 default:
-                    console.log("Error: "+res.body.result+" "+res.body.error);
+                    console.log("Error: "+res.body.result);
+                    console.log(res.body.error);
                     break;
             }
             process.exit(0);
