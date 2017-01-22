@@ -14,6 +14,7 @@
     "commander": "^2.9.0",
     "open": "0.0.5",
     "shortid": "^2.2.6",
-    "superagent": "^3.3.1"
+    "superagent": "^3.3.1",
+    "superagent-throttle": "^0.2.1"
   }
 }
