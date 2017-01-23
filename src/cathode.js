@@ -67,6 +67,7 @@ if(program.token) {
 else
 {
 
+<<<<<<< HEAD
     if(program.args[0]) { // got url?
 
         try {
@@ -76,6 +77,38 @@ else
         catch (err) {
             console.log('You need to login to Cathode first.');
             console.log('Type: cathode --token');
+=======
+    request
+    .post((process.env.APIURL || 'https://cathode.io') + '/api/scrap')
+    .send({
+        scrap: scrap,
+        url: program.args[0],
+        scope: program.scope,
+        query: program.query,
+        search: program.search
+    })
+    .set('Accept', 'application/json')
+    .end(function (err, res) {
+        if (res && res.ok) {
+            switch(res.body.result) {
+                case 0:
+                    if(program.search) {
+                        for(var i in res.body.items) {
+                            console.log(res.body.items[i]);
+                            console.log("\n");
+                        }
+                    }
+                    else
+                    {
+                        console.log(res.body.query);
+                    }
+                    break;
+                default:
+                    console.log("Error: "+res.body.result);
+                    console.log(res.body.error);
+                    break;
+            }
+>>>>>>> 21abbd5729f59261b81ecfb1e7bc80da1c2e3606
             process.exit(0);
         }
 
