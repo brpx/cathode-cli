@@ -1,6 +1,6 @@
 {
   "name": "cathode-cli",
-  "version": "0.8.2",
+  "version": "0.8.5",
   "description": "Cathode for the command line",
   "repository": "https://github.com/brpx/cathode-cli",
   "license": "MIT License",
