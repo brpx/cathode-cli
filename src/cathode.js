@@ -56,6 +56,7 @@ program
 .option('-s, --scope <scope>', 'query scope. Use with -q')
 .option('-q, --query <query>', 'query expression')
 .option('-t, --token', 'get your auth token')
+.option('-r, --render', 'render javascript into dom (default is false)')
 .option('-x, --search <string>', 'search string, return probable expression')
 .parse(process.argv);
 
@@ -91,6 +92,7 @@ else
                 url: program.args[0],
                 scope: program.scope,
                 query: program.query,
+                render: program.render ? "yes" : "no",
                 search: program.search
             })
         .set('Authorization','token ' + config.token)
