@@ -10,6 +10,7 @@ const shortid = require('shortid');
 
 var data, config;
 
+// export APIURL=http://127.0.0.1:8080
 var endpoint = process.env.APIURL || 'https://cathode.io';
 
 var throttle = new Throttle({
@@ -57,6 +58,7 @@ program
 .option('-q, --query <query>', 'query expression')
 .option('-t, --token', 'get your auth token')
 .option('-r, --render', 'render javascript into dom (default is false)')
+.option('-d, --dump', 'dump dom (as seen by cathode) to local file (useful for debug)')
 .option('-x, --search <string>', 'search string, return probable expression')
 .parse(process.argv);
 
@@ -92,6 +94,7 @@ else
                 url: program.args[0],
                 scope: program.scope,
                 query: program.query,
+                dump: program.dump,
                 render: program.render ? "yes" : "no",
                 search: program.search
             })
@@ -106,6 +109,9 @@ else
                                     console.log(res.body.items[i]);
                                     console.log("\n");
                                 }
+                            }else if(program.dump) {
+                                fs.writeFileSync("/tmp/cathode_dom.html", res.body.dom);
+                                console.log("Wrote DOM to /tmp/cathode_dom.html");
                             }
                             else
                             {
